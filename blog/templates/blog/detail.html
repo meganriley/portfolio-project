@@ -1,14 +1,14 @@
 
 <!doctype html>
 <html lang="en">
+{% load static %}
   <head>
-    {% load static %}
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
     <meta name="generator" content="Jekyll v4.1.1">
-    <title>Megan Riley</title>
+    <title>{{ blog.title }}</title>
 
     <link rel="canonical" href="https://getbootstrap.com/docs/4.5/examples/album/">
 
@@ -57,7 +57,7 @@
           <div class="navbar-nav ml-auto">
             <a class="nav-link " href="https://twitter.com/mariley2" target="_blank">Twitter</a>
             <a class="nav-link" href="{% static 'Fake Resume.jpg'%}">Resume</a>
-            <a class="nav-link" href="{% url 'allblogs' %}">Blog</a>
+            <a class="nav-link active" href="{% url 'allblogs' %}">Blog</a>
 
           </div>
         </div>
@@ -65,39 +65,18 @@
 </header>
 
 <main role="main">
+  <div class = "container">
 
-  <section class="jumbotron text-center">
-    <div class="container">
-      <h1 font-size=50px>Hi! I'm Megan</h1>
-      <p>(But you can call me Meg!)</p>
-      <img src="{% static 'secondphoto.png' %}" class="rounded-circle" class="img-fluid" height=350 width=350</a>
-      <br />
-      <br />
-      <p class="lead text-muted" >I'm currently getting a master's degree in software engineering with the goal of becoming a backend developer. I'm a coffee enthusiast, a dog and cat mom, and a big fan of Chicago.</p>
-      <br />
-      <p>
-        <a href="mailto:meganriley806@gmail.com" class="btn btn-primary my-2">Email Me</a>
-      </p>
-    </div>
-  </section>
+  <h1 class="text-center pt-3">{{ blog.title }}</h1>
+  <p class="text-center"><img class="img-fluid rounded" width=400 src = "{{ blog.image.url }}"/></p>
+  <br />
 
-  <div class="album py-5 bg-light">
-    <div class="container">
+  {{ blog.pub_date_modified }}
+  <br />
+  <br />
+  <p>{{ blog.body }}</p>
 
-      <div class="row">
-
-        {% for job in jobs.all%}
-        <div class="col-md-4">
-          <div class="card mb-4 shadow-sm">
-            <img class ="card-img-top" src = "{{ job.image.url}}"/>
-            <div class="card-body">
-              <p class="card-text">{{ job.summary}}</p>
-            </div>
-          </div>
-        </div>
-        {% endfor %}
-      </div>
-    </div>
+  </div>
 </main>
 
 <footer class="text-muted">

@@ -1,0 +1,8 @@
+.container {
+  min-width:992px!important;
+  background-color: purple;
+}
+
+h1 {
+  color: purple;
+}
